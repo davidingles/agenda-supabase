@@ -1,0 +1,21 @@
+# ============================================
+# Archivos y carpetas que NO deben subirse a Git
+# ============================================
+
+# Dependencias de Node.js (se regeneran con `npm install`)
+node_modules/
+
+# Variables de entorno / secretos
+.env
+
+# Logs
+*.log
+npm-debug.log*
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Carpetas temporales del editor
+.vscode/
+.idea/

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     index.html — Formulario + Lista de Contactos
+     ============================================================
+     Frontend 100% vanilla (sin frameworks).
+     Consume la API del backend local en http://localhost:3000
+     ============================================================ -->
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>📒 Agenda de Contactos</title>
+
+  <!-- Hoja de estilos -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Contenedor principal de la app -->
+  <main class="contenedor">
+
+    <!-- Encabezado -->
+    <header class="cabecera">
+      <h1>📒 Agenda de Contactos</h1>
+      <p>CRUD sencillo con HTML, CSS, JS, Express y PostgreSQL</p>
+    </header>
+
+    <!-- Formulario para agregar / editar un contacto -->
+    <section class="tarjeta">
+      <h2 id="titulo-formulario">➕ Nuevo contacto</h2>
+
+      <!-- El atributo onsubmit lo controlamos desde app.js -->
+      <form id="formulario-contacto">
+        <div class="campo">
+          <label for="nombre">Nombre</label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            placeholder="Ej: Ana García"
+            required
+          />
+        </div>
+
+        <div class="campo">
+          <label for="telefono">Teléfono</label>
+          <input
+            type="tel"
+            id="telefono"
+            name="telefono"
+            placeholder="Ej: 612 345 678"
+          />
+        </div>
+
+        <!-- Botones: Guardar (normal) y Cancelar edición (oculto por defecto) -->
+        <div class="acciones">
+          <button type="submit" class="btn btn-primario" id="btn-guardar">
+            Guardar
+          </button>
+          <button type="button" class="btn btn-secundario oculto" id="btn-cancelar">
+            Cancelar edición
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Lista de contactos -->
+    <section class="tarjeta">
+      <h2>📇 Contactos guardados</h2>
+
+      <!-- Donde se pintará la lista (se rellena desde app.js) -->
+      <ul id="lista-contactos" class="lista-contactos"></ul>
+
+      <!-- Mensaje que se muestra mientras se cargan los datos -->
+      <p id="estado" class="estado">Cargando contactos…</p>
+    </section>
+
+  </main>
+
+  <!-- Código JavaScript de la aplicación -->
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "mi-app-crud-backend",
+  "version": "1.0.0",
+  "description": "API REST sencilla con Express + PostgreSQL (Supabase) para gestionar contactos.",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "express",
+    "crud",
+    "postgres",
+    "supabase",
+    "api"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "pg": "^8.12.0"
+  }
+}
