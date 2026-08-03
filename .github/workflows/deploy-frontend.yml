@@ -1,0 +1,44 @@
+# ============================================================
+# GitHub Pages — Despliega SOLO la carpeta /frontend
+# ============================================================
+# Cada vez que hagas push a la rama 'master', este workflow
+# copia el contenido de /frontend a la rama 'gh-pages', que es
+# la que GitHub Pages publica como sitio web estático.
+#
+# Tu sitio quedará en:
+#   https://davidingles.github.io/agenda-supabase/
+# ============================================================
+
+name: Deploy frontend a GitHub Pages
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch: # permite lanzarlo a mano desde la pestaña Actions
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v4
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Subir solo la carpeta /frontend
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: frontend # 👈 aquí solo la carpeta frontend
+
+      - name: Desplegar en GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
