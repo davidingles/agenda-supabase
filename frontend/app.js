@@ -1,8 +1,8 @@
 /* ============================================================
    app.js — Lógica del Frontend (consumo de la API con fetch)
    ============================================================
-   Este archivo se comunica con el backend Express local:
-   http://localhost:3000/api/contactos
+   Este archivo se comunica con el backend Express desplegado
+   en Render: https://agenda-supabase.onrender.com/api/contactos
 
    Funcionalidades:
    - Cargar y pintar la lista de contactos.
@@ -11,8 +11,8 @@
    - Eliminar un contacto (DELETE).
    ============================================================ */
 
-// ---------- 1. URL base de la API (backend local) ----------
-const API_URL = "http://localhost:3000/api/contactos";
+// ---------- 1. URL base de la API (backend en Render) ----------
+const API_URL = "https://agenda-supabase.onrender.com/api/contactos";
 
 // ---------- 2. Referencias a los elementos del HTML ----------
 const formulario = document.getElementById("formulario-contacto");
@@ -66,7 +66,7 @@ async function cargarContactos() {
     // Puede ser un error de red (backend apagado) o una respuesta 500
     // (backend encendido pero base de datos mal configurada)
     mostrarEstado(
-      "⚠️ No se pudieron cargar los contactos. Revisa que el backend esté en marcha (puerto 3000) y que la base de datos esté bien configurada en el archivo .env"
+      "⚠️ No se pudieron cargar los contactos. Revisa que el backend esté en marcha en Render y que la base de datos esté bien configurada en el archivo .env"
     );
     console.error("Error al cargar contactos:", error);
   }
